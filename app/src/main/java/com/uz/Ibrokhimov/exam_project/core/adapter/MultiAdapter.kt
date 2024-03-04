@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.uz.Ibrokhimov.exam_project.core.model.base.BaseModel
+import com.uz.Ibrokhimov.exam_project.core.model.now.BannerResult
 import com.uz.Ibrokhimov.exam_project.core.model.now.FilmsNowPlayingResponse
 import com.uz.Ibrokhimov.exam_project.core.model.popular.FilmsPopularResponse
 import com.uz.Ibrokhimov.exam_project.databinding.ItemBannerParentBinding
@@ -13,6 +14,7 @@ import com.uz.Ibrokhimov.exam_project.databinding.ItemFilmsParentBinding
 class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val data = ArrayList<BaseModel>()
+    var setOnClickBanner: ((data: BannerResult) -> Unit)? = null
 
     fun setData(multiData: ArrayList<BaseModel>) {
         this.data.clear()
@@ -32,6 +34,9 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bindDataToBannerParent(data: FilmsNowPlayingResponse) {
             binding.recyclerForBanner.adapter = adapter
             adapter.setData(data = data.results)
+            adapter.setOnclickItem = {
+                    setOnClickBanner?.invoke(it)
+            }
         }
 
 
@@ -42,7 +47,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val adapter = PopularAdapter()
         fun bindDataToNewsParent(data: FilmsPopularResponse) {
             binding.recyclerForBanner.adapter = adapter
-            adapter.setData(data.results)
+            adapter.setData(data.results.shuffled())
         }
     }
 

@@ -17,6 +17,7 @@
             android:layout_marginStart="20dp"
             android:text="Now Showing"
             android:textColor="#1C1735"
+
             android:textSize="20dp"
             android:textStyle="bold" />
 

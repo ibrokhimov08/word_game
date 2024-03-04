@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.uz.Ibrokhimov.exam_project.R
@@ -29,6 +30,16 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         homeVM.getFilmsData()
         observer()
         setAdapter()
+        loadAction()
+    }
+
+    private fun loadAction() {
+
+        adapter.setOnClickBanner = {
+
+            findNavController().navigate(HomeScreenDirections.homeToDetail(it))
+
+        }
 
     }
 
@@ -44,14 +55,14 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         homeVM.filmsNowLiveData.observe(requireActivity()) {
             multiData.add(it!!)
             one = true
-            if (one && two) {
+            if (this.one && two) {
                 this.adapter.setData(multiData)
             }
         }
         homeVM.filmsPopularLiveData.observe(requireActivity()) {
             multiData.add(it!!)
             two = true
-            if (one && two) {
+            if (one && this.two) {
                 this.adapter.setData(multiData)
             }
         }

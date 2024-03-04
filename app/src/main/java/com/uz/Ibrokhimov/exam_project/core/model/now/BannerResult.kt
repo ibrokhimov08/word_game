@@ -2,6 +2,7 @@ package com.uz.Ibrokhimov.exam_project.core.model.now
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class BannerResult(
     @SerializedName("adult")
@@ -32,4 +33,4 @@ data class BannerResult(
     val voteAverage: Double, // 7.5
     @SerializedName("vote_count")
     val voteCount: Int // 687// //
-)
+):Serializable

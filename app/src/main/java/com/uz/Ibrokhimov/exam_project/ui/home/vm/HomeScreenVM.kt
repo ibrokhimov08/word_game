@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class HomeScreenVM : ViewModel() {
 
     private val repository = FilmsRepository()
-
     val filmsNowLiveData: MutableLiveData<FilmsNowPlayingResponse?> = MutableLiveData()
     val filmsPopularLiveData: MutableLiveData<FilmsPopularResponse?> = MutableLiveData()
     val errorLiveData: MutableLiveData<String?> = MutableLiveData()
@@ -22,13 +21,13 @@ class HomeScreenVM : ViewModel() {
             val resultNow = repository.getNowFilms()
             val resultPopular = repository.getPopularFilms()
 
-            if (resultNow != null) {
-                filmsNowLiveData.value = resultNow.data!!
+            if (resultNow.data != null) {
+                filmsNowLiveData.value = resultNow.data
             } else {
                 errorLiveData.value = resultNow.error
             }
-            if (resultPopular != null) {
-                filmsPopularLiveData.value = resultPopular.data!!
+            if (resultPopular.data != null) {
+                filmsPopularLiveData.value = resultPopular.data
             }
         }
 

@@ -11,6 +11,7 @@ import com.uz.Ibrokhimov.exam_project.databinding.ItemBannerBinding
 class BannerAdapter : RecyclerView.Adapter<BannerAdapter.BannerViewHolder>() {
 
     private val data = ArrayList<BannerResult>()
+    var setOnclickItem :((data: BannerResult) ->Unit)? = null
 
     fun setData(data: List<BannerResult>) {
         this.data.clear()
@@ -24,6 +25,13 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.BannerViewHolder>() {
         fun bindData(data: BannerResult) {
             binding.bannerImage.load("https://image.tmdb.org/t/p/original${data.posterPath}")
             binding.text.text = data.title
+
+            itemView.setOnClickListener {
+
+                setOnclickItem?.invoke(data)
+
+            }
+
         }
     }
 

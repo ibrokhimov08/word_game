@@ -3,13 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/homeScreen">
+    app:startDestination="@id/splashScreen">
 
 
     <fragment
         android:id="@+id/homeScreen"
         android:name="com.uz.Ibrokhimov.exam_project.ui.home.view.HomeScreen"
         android:label="screen_home"
-        tools:layout="@layout/screen_home" />
+        tools:layout="@layout/screen_home" >
+        <action
+            android:id="@+id/homeToDetail"
+            app:destination="@id/detailScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailScreen"
+        android:name="com.uz.Ibrokhimov.exam_project.ui.detail.DetailScreen"
+        android:label="screen_detail"
+        tools:layout="@layout/screen_detail" >
+        <argument
+            android:name="data"
+            app:argType="com.uz.Ibrokhimov.exam_project.core.model.now.BannerResult" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.uz.Ibrokhimov.exam_project.ui.splash.SplashScreen"
+        android:label="screen_splash"
+        tools:layout="@layout/screen_splash" >
+
+
+        <action
+            android:id="@+id/action_splashScreen_to_homeScreen2"
+            app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_splashScreen_to_screenLogin"
+            app:destination="@id/screenLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenLogin"
+        android:name="com.uz.Ibrokhimov.exam_project.ui.login.ScreenLogin"
+        android:label="login_screen"
+        tools:layout="@layout/login_screen" />
 
 </navigation>

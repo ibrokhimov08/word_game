@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SettingActivity">
+
+
+    <ImageView
+        android:id="@+id/backgrdDef"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        android:layout_height="match_parent"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Theme"
+        android:textSize="35sp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/imageGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="150dp"
+            style="@style/circleImageView"
+            android:src="@drawable/back_photo2"
+            android:scaleType="centerCrop"
+            app:strokeWidth="7dp"
+            app:strokeColor="@color/white"
+            android:layout_gravity="center|start"
+            android:layout_marginBottom="150dp"
+            android:layout_marginStart="30dp"
+            android:layout_height="150dp"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="150dp"
+            style="@style/circleImageView"
+            android:src="@drawable/back_photo3"
+            android:scaleType="centerCrop"
+            app:strokeWidth="7dp"
+            app:strokeColor="@color/white"
+            android:layout_gravity="center|end"
+            android:layout_marginBottom="150dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="150dp"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="150dp"
+            style="@style/circleImageView"
+            android:src="@drawable/back_photo4"
+            android:scaleType="centerCrop"
+            app:strokeWidth="7dp"
+            app:strokeColor="@color/white"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="150dp"/>
+
+
+
+    </FrameLayout>
+
+
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_marginBottom="50dp"
+        android:text="Back"
+        android:textSize="20sp"
+        android:layout_gravity="bottom|center"
+        android:layout_height="50dp"/>
+
+</FrameLayout>

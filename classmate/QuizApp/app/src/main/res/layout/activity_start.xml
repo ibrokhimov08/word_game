@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@drawable/background"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:text="QUIZ\nGAME"
+        android:textSize="50dp"
+        android:fontFamily="@font/regular"
+        android:gravity="center"
+        android:scaleY="1"
+        android:scaleX="2"
+        android:layout_gravity="center"
+        android:textColor="#B51A1A"
+        android:layout_height="wrap_content"/>
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+   <Button
+       android:id="@+id/StartButton"
+       android:layout_width="200dp"
+       android:text="Start"
+       android:textAllCaps="true"
+       android:background="@drawable/start_btn"
+       android:textSize="22sp"
+       android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/hov_play"
+            android:text="How to play ?"
+            android:textAllCaps="false"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
